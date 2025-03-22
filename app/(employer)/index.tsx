@@ -31,7 +31,7 @@ export default function Home() {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
           <Text style={styles.greeting}>Good Morning, John!</Text>
-          <Text style={styles.subtitle}>Find your next opportunity</Text>
+          <Text style={styles.subtitle}>This is recruiters login page</Text>
         </View>
 
         <View style={styles.statsContainer}>
