@@ -14,7 +14,7 @@ export default function EmployerSignup() {
   });
 
   const handleSignup = () => {
-    router.replace('/(app)');
+    router.replace('/(z-app)/jobs');
   };
 
   return (

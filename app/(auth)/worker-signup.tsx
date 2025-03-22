@@ -17,7 +17,7 @@ export default function WorkerSignup() {
     if (step < 3) {
       setStep(step + 1);
     } else {
-      router.replace('/(app)');
+      router.replace('/(z-app)/jobs');
     }
   };
 

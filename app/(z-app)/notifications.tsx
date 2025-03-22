@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Bell, Briefcase as BriefcaseIcon, MessageCircle, Star } from 'lucide-react-native';
 
-export default function Notifications() {
+const Notifications = () => {
   const notifications = [
     {
       id: 1,
@@ -217,3 +217,5 @@ const styles = StyleSheet.create({
     marginLeft: 24,
   },
 });
+
+export default Notifications;

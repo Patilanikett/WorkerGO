@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Link } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Welcome() {
+const Welcome = () => {
   return (
     <LinearGradient
       colors={['#4A90E2', '#357ABD']}
@@ -135,3 +135,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
+export default Welcome;

@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Chrome as Home, Briefcase, Bell, User } from 'lucide-react-native';
 
-export default function AppLayout() {
+const AppLayout = () =>{
   return (
     <Tabs
       screenOptions={{
@@ -47,3 +47,5 @@ export default function AppLayout() {
     </Tabs>
   );
 }
+
+export default AppLayout;

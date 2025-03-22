@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'rea
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MapPin, Clock, IndianRupee } from 'lucide-react-native';
 
-export default function Home() {
+const Home = () => {
   const jobs = [
     {
       id: 1,
@@ -214,3 +214,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
+
+export default Home;

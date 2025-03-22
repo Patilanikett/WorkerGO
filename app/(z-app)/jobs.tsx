@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Search, Filter, MapPin, IndianRupee } from 'lucide-react-native';
 
-export default function Jobs() {
+const Jobs = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -269,3 +269,5 @@ const styles = StyleSheet.create({
     color: '#8E8E93',
   },
 });
+
+export default Jobs;
