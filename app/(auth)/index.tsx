@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Link } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Welcome() {
+const Welcome = () => {
   return (
     <LinearGradient
       colors={['#4A90E2', '#357ABD']}
@@ -21,12 +21,6 @@ export default function Welcome() {
           <Link href="/worker-signup" asChild>
             <TouchableOpacity style={styles.button}>
               <Text style={styles.buttonText}>I'm a Worker</Text>
-            </TouchableOpacity>
-          </Link>
-          
-          <Link href="/employer-signup" asChild>
-            <TouchableOpacity style={[styles.button, styles.employerButton]}>
-              <Text style={[styles.buttonText, styles.employerButtonText]}>I'm an Employer</Text>
             </TouchableOpacity>
           </Link>
         </View>
@@ -135,3 +129,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
+export default Welcome;

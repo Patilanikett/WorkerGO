@@ -1,8 +1,15 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Settings, Star, Clock, MapPin, PenTool as Tool, ChevronRight, LogOut } from 'lucide-react-native';
+import { useLocalSearchParams } from 'expo-router';
 
 export default function Profile() {
+  const {user } = useLocalSearchParams();
+
+  const user_data: UserData | null = typeof user === 'string' ? JSON.parse(user) : null;
+
+  console.log("user_data", user_data);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -13,8 +20,13 @@ export default function Profile() {
               style={styles.profileImage}
             />
             <View style={styles.profileText}>
-              <Text style={styles.name}>John Doe</Text>
-              <Text style={styles.profession}>Construction Worker</Text>
+              <Text style={styles.name}>{user_data.name}</Text>
+              <Text style={styles.profession} numberOfLines={1}
+            ellipsizeMode="tail" >
+                {user_data.skills.map((skill: [], index: any) => (
+                  <Text key={index}>{skill}{index < user_data.skills.length - 1 ? ', ' : ''}</Text>
+                ))}
+              </Text>
               <View style={styles.ratingContainer}>
                 <Star size={16} color="#FFB800" fill="#FFB800" />
                 <Text style={styles.rating}>4.8 (24 reviews)</Text>
@@ -39,7 +51,7 @@ export default function Profile() {
           </View>
           <View style={styles.statCard}>
             <Tool size={24} color="#4A90E2" />
-            <Text style={styles.statNumber}>5</Text>
+            <Text style={styles.statNumber}>{user_data.skills.length}</Text>
             <Text style={styles.statLabel}>Skills</Text>
           </View>
         </View>
@@ -47,7 +59,7 @@ export default function Profile() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Skills</Text>
           <View style={styles.skillsContainer}>
-            {['Construction', 'Plumbing', 'Electrical', 'Painting', 'Carpentry'].map((skill) => (
+            {user_data.skills.map((skill:any) => (
               <View key={skill} style={styles.skillChip}>
                 <Text style={styles.skillText}>{skill}</Text>
               </View>
@@ -58,7 +70,7 @@ export default function Profile() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Work Experience</Text>
           <Text style={styles.experienceText}>
-            5+ years of experience in construction and renovation projects. Skilled in various aspects of building and maintenance work.
+            {user_data.experinceLevel - 1}+ years of experience in construction and renovation projects. Skilled in various aspects of building and maintenance work.
           </Text>
         </View>
 
@@ -131,6 +143,7 @@ const styles = StyleSheet.create({
   },
   profession: {
     fontFamily: 'Poppins-Regular',
+    width: 180,
     fontSize: 16,
     color: '#666666',
     marginBottom: 4,

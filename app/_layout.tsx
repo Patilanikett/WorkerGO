@@ -1,27 +1,30 @@
+import { Stack, useRouter } from 'expo-router';
 import { useEffect } from 'react';
-import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
-import { useFonts, Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
 
 export default function RootLayout() {
+  const router = useRouter();
   useFrameworkReady();
 
   const [fontsLoaded] = useFonts({
     'Poppins-Regular': Poppins_400Regular,
-    'Poppins-SemiBold': Poppins_600SemiBold,
-    'Poppins-Bold': Poppins_700Bold,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  useEffect(() => {
+    // router.replace('/(auth)');
+  }, []);
+
+  if (!fontsLoaded) return null;
+
+  console.log("heelo ")
 
   return (
     <>
-      <Stack screenOptions={{ headerShown: false }} initialRouteName='/(employer)'>
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(app)" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }} initialRouteName='(auth)'>
+        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(z-app)" />
       </Stack>
       <StatusBar style="auto" />
     </>
